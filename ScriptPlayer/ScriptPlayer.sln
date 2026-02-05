@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.Cli", "ScriptP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.Ipc", "ScriptPlayer.Ipc\ScriptPlayer.Ipc.csproj", "{1C299420-2055-48D6-8DB7-E297709CC9D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.Console", "ScriptPlayer.Console\ScriptPlayer.Console.csproj", "{DA12535F-08A2-49C2-8F93-616521E30D2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.Console", "ScriptPlayer.Console\ScriptPlayer.Console.csproj", "{DA12535F-08A2-49C2-8F93-616521E30D2D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MK312WifiLibDotNet", "MK312WifiDotNetLib\MK312WifiLibDotNet.csproj", "{6541D0E3-9075-4F35-AF79-943F8B695BBB}"
 EndProject
