@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.Console", "Scr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MK312WifiLibDotNet", "MK312WifiDotNetLib\MK312WifiLibDotNet.csproj", "{6541D0E3-9075-4F35-AF79-943F8B695BBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.HandyAPIv3Playground", "ScriptPlayer.HandyAPIv3Playground\ScriptPlayer.HandyAPIv3Playground.csproj", "{BCE2D457-5EDD-4147-B733-44FC3D7F8E0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.HandyAPIv3Playground", "ScriptPlayer.HandyAPIv3Playground\ScriptPlayer.HandyAPIv3Playground.csproj", "{BCE2D457-5EDD-4147-B733-44FC3D7F8E0B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.HandyApi", "ScriptPlayer.HandyApi\ScriptPlayer.HandyApi.csproj", "{23068F98-AA0A-48BE-B929-7031335DCE55}"
 EndProject
