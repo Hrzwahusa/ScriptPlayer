@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer", "ScriptPlaye
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.Shared", "ScriptPlayer.Shared\ScriptPlayer.Shared.csproj", "{E6533970-6370-4CDE-B7A8-A9E3F15BF26A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.VideoSync", "ScriptPlayer.VideoSync\ScriptPlayer.VideoSync.csproj", "{BEE60612-1A46-4B2E-BE17-F8637D824E6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.VideoSync", "ScriptPlayer.VideoSync\ScriptPlayer.VideoSync.csproj", "{BEE60612-1A46-4B2E-BE17-F8637D824E6A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.Cli", "ScriptPlayer.Cli\ScriptPlayer.Cli.csproj", "{964F1B7A-E938-4F4C-8CF8-BC7D92716342}"
 EndProject
