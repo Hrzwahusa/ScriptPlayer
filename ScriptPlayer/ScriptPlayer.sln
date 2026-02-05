@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.VideoSync", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.Cli", "ScriptPlayer.Cli\ScriptPlayer.Cli.csproj", "{964F1B7A-E938-4F4C-8CF8-BC7D92716342}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.Ipc", "ScriptPlayer.Ipc\ScriptPlayer.Ipc.csproj", "{1C299420-2055-48D6-8DB7-E297709CC9D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.Ipc", "ScriptPlayer.Ipc\ScriptPlayer.Ipc.csproj", "{1C299420-2055-48D6-8DB7-E297709CC9D3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.Console", "ScriptPlayer.Console\ScriptPlayer.Console.csproj", "{DA12535F-08A2-49C2-8F93-616521E30D2D}"
 EndProject
