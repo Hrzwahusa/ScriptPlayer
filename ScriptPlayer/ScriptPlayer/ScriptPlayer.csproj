@@ -13,7 +13,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
-    <PackageReference Include="10" Version="0.17763.0" />
     <PackageReference Include="FMUtils.KeyboardHook" Version="1.0.140.2145" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.43" />
     <PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />

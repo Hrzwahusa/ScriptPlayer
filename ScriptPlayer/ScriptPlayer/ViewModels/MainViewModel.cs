@@ -4,6 +4,7 @@ using ScriptPlayer.Shared;
 using ScriptPlayer.Shared.Classes;
 using ScriptPlayer.Shared.Helpers;
 using ScriptPlayer.Shared.Scripts;
+using Range = ScriptPlayer.Shared.Range;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

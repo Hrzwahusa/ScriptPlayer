@@ -18,7 +18,7 @@ namespace ScriptPlayer
             InitializeComponent();
             _debugMessages = new Queue<string>();
             _traceListener = new DebugTraceListener(this);
-            Debug.Listeners.Add(_traceListener);
+            Trace.Listeners.Add(_traceListener);
         }
 
         public void AddDebugMessage(string message)
@@ -50,7 +50,7 @@ namespace ScriptPlayer
 
         protected override void OnClosed(EventArgs e)
         {
-            Debug.Listeners.Remove(_traceListener);
+            Trace.Listeners.Remove(_traceListener);
             base.OnClosed(e);
         }
     }
