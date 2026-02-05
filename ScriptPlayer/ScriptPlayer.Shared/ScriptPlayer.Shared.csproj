@@ -17,7 +17,6 @@
     <PackageReference Include="MediaInfo.Native" Version="21.9.1" />
     <PackageReference Include="MediaInfo.Wrapper" Version="21.9.2" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="NAudio" Version="2.1.0" />
     <PackageReference Include="NAudio.Asio" Version="2.1.0" />
     <PackageReference Include="NAudio.Core" Version="2.1.0" />
@@ -26,12 +25,7 @@
     <PackageReference Include="NAudio.WinForms" Version="2.1.0" />
     <PackageReference Include="NAudio.WinMM" Version="2.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
-    <PackageReference Include="System.Security.AccessControl" Version="6.0.1" />
-    <PackageReference Include="System.Threading.Tasks.Dataflow" Version="10.0.2" />
-    <PackageReference Include="v4" Version="5" />
     <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters" Version="2.2.1" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.2" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Devices\Launch.cs" />
