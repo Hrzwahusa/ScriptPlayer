@@ -421,8 +421,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\ButtplugRustFFI.2.0.5\build\ButtplugRustFFI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ButtplugRustFFI.2.0.5\build\ButtplugRustFFI.targets'))" />
-    <Error Condition="!Exists('..\packages\MediaInfo.Native.21.9.1\build\MediaInfo.Native.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MediaInfo.Native.21.9.1\build\MediaInfo.Native.targets'))" />
+    <!-- <Error Condition="!Exists('..\packages\ButtplugRustFFI.2.0.5\build\ButtplugRustFFI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ButtplugRustFFI.2.0.5\build\ButtplugRustFFI.targets'))" /> -->
+    <!-- <Error Condition="!Exists('..\packages\MediaInfo.Native.21.9.1\build\MediaInfo.Native.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MediaInfo.Native.21.9.1\build\MediaInfo.Native.targets'))" /> -->
   </Target>
   <Import Project="..\packages\ButtplugRustFFI.2.0.5\build\ButtplugRustFFI.targets" Condition="Exists('..\packages\ButtplugRustFFI.2.0.5\build\ButtplugRustFFI.targets')" />
   <Import Project="..\packages\MediaInfo.Native.21.9.1\build\MediaInfo.Native.targets" Condition="Exists('..\packages\MediaInfo.Native.21.9.1\build\MediaInfo.Native.targets')" />

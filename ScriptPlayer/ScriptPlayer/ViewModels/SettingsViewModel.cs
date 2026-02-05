@@ -53,7 +53,7 @@ namespace ScriptPlayer.ViewModels
         private byte _maxSpeed = 95;
         private double _speedMultiplier = 1;
 
-        private bool _showHeatMap;
+        private bool _showHeatMap = true;
         private PositionFilterMode _filterMode = PositionFilterMode.FullRange;
         private double _filterRange = 0.5;
         private bool _showScriptPositions;

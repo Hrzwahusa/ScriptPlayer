@@ -40,6 +40,7 @@ namespace ScriptPlayer
         }
 
         private WindowStateModel _windowStateModel;
+        private DebugWindow _debugWindow;
 
         private DateTime _doubleClickTimeStamp = DateTime.MinValue;
         
@@ -49,6 +50,10 @@ namespace ScriptPlayer
             ViewModel = new MainViewModel();
             ViewModel.LoadPlayerState();
             RestoreWindowState(ViewModel.InitialPlayerState);   
+            
+            // Open debug console
+            _debugWindow = new DebugWindow();
+            _debugWindow.Show();
         }
 
         private void MainWindow_OnClosing(object sender, CancelEventArgs e)
