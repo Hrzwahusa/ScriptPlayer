@@ -7,11 +7,6 @@
     <Configurations>Debug_Ubuntu;Debug;Release_Ubuntu;Release</Configurations>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Net.Http" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ScriptPlayer.Ipc\ScriptPlayer.Ipc.csproj" />
   </ItemGroup>
 </Project>
