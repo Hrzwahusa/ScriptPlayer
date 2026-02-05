@@ -8,11 +8,8 @@
     <Configurations>Debug_Ubuntu;Debug;Release_Ubuntu;Release</Configurations>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
     <PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ScriptPlayer.HandyApi\ScriptPlayer.HandyApi.csproj" />
