@@ -675,8 +675,13 @@
                         <Setter Property="Overlay" Value="{Binding HeatMap}"/>
                         <Setter Property="OverlayGeometry" Value="{Binding HeatMapBounds}"/>
                         <Style.Triggers>
+                            <DataTrigger Binding="{Binding Settings.ShowHeatMap}" Value="True">
+                                <Setter Property="Overlay" Value="{Binding HeatMap}"/>
+                                <Setter Property="OverlayGeometry" Value="{Binding HeatMapBounds}"/>
+                            </DataTrigger>
                             <DataTrigger Binding="{Binding Settings.ShowHeatMap}" Value="False">
                                 <Setter Property="Overlay" Value="Transparent"/>
+                                <Setter Property="OverlayGeometry" Value="{x:Null}"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
