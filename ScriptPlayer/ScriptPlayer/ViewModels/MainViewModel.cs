@@ -4,6 +4,7 @@ using ScriptPlayer.Shared;
 using ScriptPlayer.Shared.Classes;
 using ScriptPlayer.Shared.Helpers;
 using ScriptPlayer.Shared.Scripts;
+using Range = ScriptPlayer.Shared.Range;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -3766,18 +3767,26 @@ namespace ScriptPlayer.ViewModels
 
             if (!string.IsNullOrWhiteSpace(Settings.FfmpegPath))
             {
-                FfmpegWrapper wrapper = new FfmpegWrapper(Settings.FfmpegPath);
-                var videoInfo = wrapper.GetVideoInfo(videoFile);
-
-                foreach (var subtitle in videoInfo.Subtitles)
+                try
                 {
-                    string[] data = wrapper.GetSubtitles(videoFile, subtitle);
+                    FfmpegWrapper wrapper = new FfmpegWrapper(Settings.FfmpegPath);
+                    var videoInfo = wrapper.GetVideoInfo(videoFile);
 
-                    if (data == null || data.Length == 0)
-                        continue;
+                    foreach (var subtitle in videoInfo.Subtitles)
+                    {
+                        string[] data = wrapper.GetSubtitles(videoFile, subtitle);
 
-                    if (LoadSubtitles(subtitle.Format, data))
-                        return;
+                        if (data == null || data.Length == 0)
+                            continue;
+
+                        if (LoadSubtitles(subtitle.Format, data))
+                            return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"FFmpeg error while processing subtitles: {ex.Message}");
+                    // Continue without FFmpeg - video can still play
                 }
             }
 
@@ -3887,7 +3896,6 @@ namespace ScriptPlayer.ViewModels
             IEnumerable<FunScriptAction> actions = Settings.ShowFilledGapsInHeatMap ? _scriptHandler.GetScript() : _scriptHandler.GetUnfilledScript();
 
             List<FunScriptAction> timeStamps = FilterDuplicates(actions.ToList());
-
 
             Brush heatmap = HeatMapGenerator.Generate3(timeStamps.Select(t => new TimedPosition()
             {

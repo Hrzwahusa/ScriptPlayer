@@ -307,7 +307,7 @@ namespace ScriptPlayer.Shared
             if (min.Count + max.Count < 3)
                 return null;
 
-            int maxPoints = 1000;
+            int maxPoints = 30000;
 
             min = LimitValues(min, maxPoints, timeFrom, timeTo, true);
             max = LimitValues(max, maxPoints, timeFrom, timeTo, false);
@@ -336,8 +336,8 @@ namespace ScriptPlayer.Shared
 
         private static List<TimedPosition> LimitValues(List<TimedPosition> values, int count, TimeSpan timeFrom, TimeSpan timeTo, bool isMin)
         {
-            //if (values.Count <= count)
-            //    return values;
+            if (values.Count <= count)
+                return values;
 
             List<TimedPosition> result = new List<TimedPosition>();
             result.Add(values.First());

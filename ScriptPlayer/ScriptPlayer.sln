@@ -1,25 +1,25 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer", "ScriptPlayer\ScriptPlayer.csproj", "{9B1B8C89-4AFE-47D4-B834-41673A672DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer", "ScriptPlayer\ScriptPlayer.csproj", "{9B1B8C89-4AFE-47D4-B834-41673A672DDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.Shared", "ScriptPlayer.Shared\ScriptPlayer.Shared.csproj", "{E6533970-6370-4CDE-B7A8-A9E3F15BF26A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.Shared", "ScriptPlayer.Shared\ScriptPlayer.Shared.csproj", "{E6533970-6370-4CDE-B7A8-A9E3F15BF26A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.VideoSync", "ScriptPlayer.VideoSync\ScriptPlayer.VideoSync.csproj", "{BEE60612-1A46-4B2E-BE17-F8637D824E6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.VideoSync", "ScriptPlayer.VideoSync\ScriptPlayer.VideoSync.csproj", "{BEE60612-1A46-4B2E-BE17-F8637D824E6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.Cli", "ScriptPlayer.Cli\ScriptPlayer.Cli.csproj", "{964F1B7A-E938-4F4C-8CF8-BC7D92716342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.Cli", "ScriptPlayer.Cli\ScriptPlayer.Cli.csproj", "{964F1B7A-E938-4F4C-8CF8-BC7D92716342}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.Ipc", "ScriptPlayer.Ipc\ScriptPlayer.Ipc.csproj", "{1C299420-2055-48D6-8DB7-E297709CC9D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.Ipc", "ScriptPlayer.Ipc\ScriptPlayer.Ipc.csproj", "{1C299420-2055-48D6-8DB7-E297709CC9D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.Console", "ScriptPlayer.Console\ScriptPlayer.Console.csproj", "{DA12535F-08A2-49C2-8F93-616521E30D2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.Console", "ScriptPlayer.Console\ScriptPlayer.Console.csproj", "{DA12535F-08A2-49C2-8F93-616521E30D2D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MK312WifiLibDotNet", "MK312WifiDotNetLib\MK312WifiLibDotNet.csproj", "{6541D0E3-9075-4F35-AF79-943F8B695BBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.HandyAPIv3Playground", "ScriptPlayer.HandyAPIv3Playground\ScriptPlayer.HandyAPIv3Playground.csproj", "{BCE2D457-5EDD-4147-B733-44FC3D7F8E0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.HandyAPIv3Playground", "ScriptPlayer.HandyAPIv3Playground\ScriptPlayer.HandyAPIv3Playground.csproj", "{BCE2D457-5EDD-4147-B733-44FC3D7F8E0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptPlayer.HandyApi", "ScriptPlayer.HandyApi\ScriptPlayer.HandyApi.csproj", "{23068F98-AA0A-48BE-B929-7031335DCE55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptPlayer.HandyApi", "ScriptPlayer.HandyApi\ScriptPlayer.HandyApi.csproj", "{23068F98-AA0A-48BE-B929-7031335DCE55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

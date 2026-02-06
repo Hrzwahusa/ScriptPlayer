@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using System.Xml.Serialization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ScriptPlayer.Shared
 {

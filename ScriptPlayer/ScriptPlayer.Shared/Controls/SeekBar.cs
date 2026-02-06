@@ -16,11 +16,21 @@ namespace ScriptPlayer.Shared
 
         public static readonly DependencyProperty OverlayProperty = DependencyProperty.Register(
             "Overlay", typeof(Brush), typeof(SeekBar),
-            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
+            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender, OnOverlayPropertyChanged));
+
+        private static void OnOverlayPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((SeekBar)d).InvalidateVisual();
+        }
 
         public static readonly DependencyProperty OverlayOpacityProperty = DependencyProperty.Register(
             "OverlayOpacity", typeof(Brush), typeof(SeekBar),
-            new FrameworkPropertyMetadata(Brushes.Black, FrameworkPropertyMetadataOptions.AffectsRender));
+            new FrameworkPropertyMetadata(Brushes.Black, FrameworkPropertyMetadataOptions.AffectsRender, OnOverlayOpacityPropertyChanged));
+
+        private static void OnOverlayOpacityPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((SeekBar)d).InvalidateVisual();
+        }
 
         public static readonly DependencyProperty OverlayGeometryProperty = DependencyProperty.Register(
             "OverlayGeometry", typeof(Geometry), typeof(SeekBar), new FrameworkPropertyMetadata(default(Geometry), FrameworkPropertyMetadataOptions.AffectsRender));
@@ -239,26 +249,42 @@ namespace ScriptPlayer.Shared
                 dc.DrawRectangle(inRangeBrush, null, new Rect(new Point(x1, 0), new Point(x2, ActualHeight)));
             }
 
-            dc.PushOpacityMask(OverlayOpacity);
-
-            bool overlayGeometry = false;
-
-            if (OverlayGeometry != null)
+            // Draw overlay with proper opacity - always draw if overlay is not transparent
+            if (Overlay != null && Overlay != Brushes.Transparent)
             {
-                Geometry geo = OverlayGeometry.Clone();
-                geo.Transform = new ScaleTransform(ActualWidth, ActualHeight);
+                bool overlayGeometry = false;
 
-                overlayGeometry = true;
-                dc.PushClip(geo);
+                if (OverlayGeometry != null)
+                {
+                    Geometry geo = OverlayGeometry.Clone();
+                    geo.Transform = new ScaleTransform(ActualWidth, ActualHeight);
+
+                    overlayGeometry = true;
+                    dc.PushClip(geo);
+                }
+
+                // Push opacity from OverlayOpacity brush instead of using it as mask
+                if (OverlayOpacity is SolidColorBrush opacityBrush)
+                {
+                    dc.PushOpacity(opacityBrush.Color.A / 255.0);
+                }
+                else if (OverlayOpacity is LinearGradientBrush gradientBrush)
+                {
+                    // For gradient brushes, use a default opacity
+                    dc.PushOpacity(0.8);
+                }
+                else
+                {
+                    dc.PushOpacity(1.0);
+                }
+
+                dc.DrawRectangle(Overlay, null, rect);
+
+                dc.Pop(); // Pop opacity
+
+                if (overlayGeometry)
+                    dc.Pop(); // Pop geometry clip
             }
-
-
-            dc.DrawRectangle(Overlay, null, rect);
-
-            if(overlayGeometry)
-                dc.Pop();
-
-            dc.Pop();
 
             if (Duration == TimeSpan.Zero) return;
 

@@ -63,11 +63,11 @@
                     </shared:SeekBar.OverlayOpacity>
                     <shared:SeekBar.Style>
                         <Style TargetType="{x:Type shared:SeekBar}">
-                            <Setter Property="Overlay" Value="Transparent"/>
+                            <Setter Property="Overlay" Value="{Binding HeatMap}"/>
+                            <Setter Property="OverlayGeometry" Value="{Binding HeatMapBounds}"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Settings.ShowHeatMap}" Value="True">
-                                    <Setter Property="Overlay" Value="{Binding HeatMap}"/>
-                                    <Setter Property="OverlayGeometry" Value="{Binding HeatMapBounds}"/>
+                                <DataTrigger Binding="{Binding Settings.ShowHeatMap}" Value="False">
+                                    <Setter Property="Overlay" Value="Transparent"/>
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>

@@ -156,7 +156,7 @@ namespace ScriptPlayer.Shared.Controls
         private void MediaOpenedFailure(object sender, ExceptionEventArgs e)
         {
             Debug.WriteLine("Media Open Failed with Exception: " + e.ErrorException.Message);
-            UpdateAll();
+            // Don't call UpdateAll() here - the media failed to open
         }
 
         private void UpdateBrush()
@@ -164,6 +164,7 @@ namespace ScriptPlayer.Shared.Controls
             if (!_player.HasVideo)
             {
                 VideoBrush = EmptyBrush;
+                return;
             }
 
             Rect rect = new Rect(0, 0, 1, 1);
@@ -247,12 +248,15 @@ namespace ScriptPlayer.Shared.Controls
             int maxRetries = 3;
             TimeSpan maxWaitTime = TimeSpan.FromSeconds(10);
             
+            Debug.WriteLine($"OpenAndWaitFor: Starting to open {filename}");
+            
             for (int i = 0; i < maxRetries; i++)
             {
                 ManualResetEvent loadEvent = new ManualResetEvent(false);
 
                 void Success(object sender, EventArgs args)
                 {
+                    Debug.WriteLine($"OpenAndWaitFor: Media opened successfully on attempt {i + 1}");
                     success = true;
                     OnMediaSuccessfullyLoaded(filename);
                     loadEvent.Set();
@@ -260,6 +264,7 @@ namespace ScriptPlayer.Shared.Controls
 
                 void Failure(object sender, ExceptionEventArgs args)
                 {
+                    Debug.WriteLine($"OpenAndWaitFor: Media failed to open on attempt {i + 1}: {args.ErrorException?.Message}");
                     loadEvent.Set();
                 }
 
@@ -268,7 +273,18 @@ namespace ScriptPlayer.Shared.Controls
 
                 try
                 {
-                    _player.Open(new Uri(filename, UriKind.Absolute));
+                    // Ensure proper file URI format
+                    string fileUriString = filename;
+                    if (!fileUriString.StartsWith("file://", StringComparison.OrdinalIgnoreCase))
+                    {
+                        // Convert local path to proper file URI
+                        fileUriString = new Uri(filename, UriKind.Absolute).AbsoluteUri;
+                    }
+                    
+                    Uri fileUri = new Uri(fileUriString);
+                    Debug.WriteLine($"OpenAndWaitFor: Opening URI: {fileUri}");
+                    Debug.WriteLine($"OpenAndWaitFor: File exists: {System.IO.File.Exists(filename)}");
+                    _player.Open(fileUri);
                     _player.Play();
 
                     bool timeout = !await Task.Run(() => loadEvent.WaitOne(maxWaitTime));
@@ -280,14 +296,24 @@ namespace ScriptPlayer.Shared.Controls
                     }
                     else if(success)
                     {
+                        Debug.WriteLine($"OpenAndWaitFor: Successfully loaded {filename}");
                         break;
                     }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"OpenAndWaitFor: Exception on attempt {i + 1}: {ex.Message}");
                 }
                 finally
                 {
                     _player.MediaOpened -= Success;
                     _player.MediaFailed -= Failure;
                 }
+            }
+            
+            if (!success)
+            {
+                Debug.WriteLine($"OpenAndWaitFor: Failed to open {filename} after {maxRetries} attempts");
             }
         }
 
