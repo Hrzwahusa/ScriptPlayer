@@ -16,11 +16,21 @@ namespace ScriptPlayer.Shared
 
         public static readonly DependencyProperty OverlayProperty = DependencyProperty.Register(
             "Overlay", typeof(Brush), typeof(SeekBar),
-            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
+            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender, OnOverlayPropertyChanged));
+
+        private static void OnOverlayPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((SeekBar)d).InvalidateVisual();
+        }
 
         public static readonly DependencyProperty OverlayOpacityProperty = DependencyProperty.Register(
             "OverlayOpacity", typeof(Brush), typeof(SeekBar),
-            new FrameworkPropertyMetadata(Brushes.Black, FrameworkPropertyMetadataOptions.AffectsRender));
+            new FrameworkPropertyMetadata(Brushes.Black, FrameworkPropertyMetadataOptions.AffectsRender, OnOverlayOpacityPropertyChanged));
+
+        private static void OnOverlayOpacityPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((SeekBar)d).InvalidateVisual();
+        }
 
         public static readonly DependencyProperty OverlayGeometryProperty = DependencyProperty.Register(
             "OverlayGeometry", typeof(Geometry), typeof(SeekBar), new FrameworkPropertyMetadata(default(Geometry), FrameworkPropertyMetadataOptions.AffectsRender));

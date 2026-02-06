@@ -71,6 +71,7 @@
         <BooleanToVisibilityConverter x:Key="VisibilityConverter"/>
         <converters1:MultiCollectionConverter x:Key="MultiCollectionConverter"/>
         <converters1:OneToManyConverter x:Key="OneToManyConverter"/>
+        <converters1:HeatmapVisibilityConverter x:Key="HeatmapVisibilityConverter"/>
         
         <!-- Used in code -->
         <!-- ReSharper disable Xaml.RedundantResource -->
@@ -661,7 +662,7 @@
                     <controls1:VideoDetailsPreview ViewModel="{Binding .}" Entry="{Binding Path=(viewModels:MainViewModel.Playlist).PreviousEntry}"/>
                 </controls:BetterToolTip.ToolTip>
             </Button>
-            <shared:SeekBar Positions="{Binding Positions}" HighlightRange="{Binding DisplayedRange}" SnapsToDevicePixels="True" Margin="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="SeekBar" Thumbnails="{Binding Thumbnails}" Progress="{Binding Path=TimeSource.Progress}" Duration="{Binding Path=TimeSource.Duration}" Seek="SeekBar_OnSeek">
+            <shared:SeekBar Positions="{Binding Positions}" HighlightRange="{Binding DisplayedRange}" SnapsToDevicePixels="True" Margin="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="SeekBar" Thumbnails="{Binding Thumbnails}" Progress="{Binding Path=TimeSource.Progress}" Duration="{Binding Path=TimeSource.Duration}" Seek="SeekBar_OnSeek" OverlayGeometry="{Binding HeatMapBounds}" Overlay="{Binding HeatMap}">
                 <shared:SeekBar.OverlayOpacity>
                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                         <GradientStop Offset="0" Color="#20000000"/>
@@ -670,22 +671,6 @@
                         <GradientStop Offset="1" Color="#50000000"/>
                     </LinearGradientBrush>
                 </shared:SeekBar.OverlayOpacity>
-                <shared:SeekBar.Style>
-                    <Style TargetType="{x:Type shared:SeekBar}">
-                        <Setter Property="Overlay" Value="{Binding HeatMap}"/>
-                        <Setter Property="OverlayGeometry" Value="{Binding HeatMapBounds}"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding Settings.ShowHeatMap}" Value="True">
-                                <Setter Property="Overlay" Value="{Binding HeatMap}"/>
-                                <Setter Property="OverlayGeometry" Value="{Binding HeatMapBounds}"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding Settings.ShowHeatMap}" Value="False">
-                                <Setter Property="Overlay" Value="Transparent"/>
-                                <Setter Property="OverlayGeometry" Value="{x:Null}"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </shared:SeekBar.Style>
             </shared:SeekBar>
         </DockPanel>
 
